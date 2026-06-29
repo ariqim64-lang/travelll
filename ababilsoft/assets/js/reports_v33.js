@@ -1,0 +1,5 @@
+(function(){
+  function qs(s,r){return (r||document).querySelector(s)}; function qsa(s,r){return Array.from((r||document).querySelectorAll(s))};
+  window.toggleReportColumnV33=function(scopeId,col,show){const scope=document.getElementById(scopeId)||document; qsa('[data-col="'+col+'"]',scope).forEach(el=>el.style.display=show?'':'none'); qsa('.preview-modal-v22 [data-col="'+col+'"]').forEach(el=>el.style.display=show?'':'none');};
+  window.openReportPreviewV33=function(modalId,contentId){const m=qs('#'+modalId), c=qs('#'+contentId); if(!m||!c)return; const paper=qs('.a4-paper-v22',m); if(paper){paper.innerHTML='<div class="print-header-v33"><h2>'+ (qs('.page-title h2')?.textContent||'تقرير') +'</h2><p>تاريخ الطباعة: '+new Date().toLocaleString('ar')+'</p></div>'+c.cloneNode(true).outerHTML;} m.classList.remove('hidden');m.style.display='grid';};
+})();
